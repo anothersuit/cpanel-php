@@ -9,6 +9,24 @@
  */
 trait CpanelShortcuts
 {
+    
+    
+    /**
+     * Create User Session to initiate single sign on
+     *
+     * @return mixed
+     */
+    public function createUserSession($user, $service)
+    {
+        return $this->runQuery('create_user_session', [
+            'api.version' => 1,
+            'user' => $user,
+            'service' => $service
+        ]);
+        return $this;
+	}
+    
+    
     /**
      * List all the accounts that the reseller has access to.
      *
